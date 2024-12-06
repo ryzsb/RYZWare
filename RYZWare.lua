@@ -1,8 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-if gameID = 466821342834324
-then 
-
 local Window = Rayfield:CreateWindow({
    Name = "RYZWare - Universal Script Hub",
    Icon = 0, 
