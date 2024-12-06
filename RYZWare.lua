@@ -1,3 +1,5 @@
+--BY RYZSB
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
@@ -63,11 +65,11 @@ local Button = MainTab:CreateButton({
  })
 local Slider = MainTab:CreateSlider({
     Name = "Jump Power",
-    Range = {10, 200},  -- Min is 50, Max is 200
-    Increment = 10,     -- Increment step
-    Suffix = "Jump Power",  -- Suffix to show beside the slider
-    CurrentValue = 50,  -- Initial value
-    Flag = "JumpPowerSlider", -- Flag for saving this value
+    Range = {10, 200}, 
+    Increment = 10,     
+    Suffix = "Jump Power",  
+    CurrentValue = 50,
+    Flag = "JumpPowerSlider", 
     Callback = function(Value)
         local character = game.Players.LocalPlayer.Character
         if character and character:FindFirstChild("Humanoid") then
@@ -87,7 +89,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
     end
 end)
 
--- Continuously update Jump Power in case it gets reset after jumping
 game:GetService("RunService").Heartbeat:Connect(function()
     local character = game.Players.LocalPlayer.Character
     if character and character:FindFirstChild("Humanoid") then
@@ -113,11 +114,11 @@ local Slider = MainTab:CreateSlider({
 local userInputService = game:GetService("UserInputService")
 local player = game.Players.LocalPlayer
 local humanoidRootPart
-local moving = false  -- Flag to check if 'W' is pressed
+local moving = false  
 
--- Function to update references when character respawns
+
 local function onCharacterAdded(character)
-    -- Wait for the HumanoidRootPart of the new character
+    
     humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 end
 
@@ -128,18 +129,18 @@ if player.Character then
     onCharacterAdded(player.Character)
 end
 
--- Function to handle movement when 'W' is pressed
+
 userInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end  -- Ignore if game has already processed the input
+    if gameProcessed then return end  
     if input.KeyCode == Enum.KeyCode.W then
-        moving = true  -- Start moving when 'W' is pressed
+        moving = true  
     end
 end)
 
 
 userInputService.InputEnded:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.W then
-        moving = false  -- Stop moving when 'W' is released
+        moving = false  
     end
 end)
 
@@ -147,8 +148,8 @@ end)
 game:GetService("RunService").Heartbeat:Connect(function()
     if moving and humanoidRootPart then
         local currentCFrame = humanoidRootPart.CFrame
-        local direction = currentCFrame.LookVector * speed  -- Move in the direction the player is facing
-        humanoidRootPart.CFrame = currentCFrame + direction  -- Apply the movement
+        local direction = currentCFrame.LookVector * speed  
+        humanoidRootPart.CFrame = currentCFrame + direction  
     end
 end)
 
