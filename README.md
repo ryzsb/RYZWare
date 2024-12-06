@@ -4,4 +4,8 @@ RYZWare is a compact and portable script hub with everything you need for a smoo
 
 As of right now it has:
 
---DarkDex V#
+Bypassed Walkspeed
+DarkDex V3
+Universal Vehicle Script
+Chat Bypasser
+AutoReport
